@@ -1,7 +1,11 @@
-ragas
-datasets
-pandas
+streamlit
 langchain
 langchain-openai
+langchain-community
 chromadb
+python-dotenv
+pandas
+datasets
+ragas
+
 
