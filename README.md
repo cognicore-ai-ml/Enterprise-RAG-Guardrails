@@ -44,6 +44,9 @@ streamlit run app/ui.py
 ```
 
 
+
+
+
 📈 Evaluation
 Current RAGAS Scores:
 
