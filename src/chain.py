@@ -20,6 +20,7 @@ def get_rag_chain():
     Context: {context}
     Question: {input}
     """)
+    
 
     # 4. Create the chain
     combine_docs_chain = create_stuff_documents_chain(llm, prompt)
@@ -28,3 +29,26 @@ def get_rag_chain():
 # Usage in your app/ui.py would look like:
 # chain = get_rag_chain()
 # response = chain.invoke({"input": user_query})
+
+
+
+from src.guardrails import check_input_safety, check_output_safety
+
+def run_secure_chain(user_query):
+    # 1. Pre-check
+    is_safe, message = check_input_safety(user_query)
+    if not is_safe:
+        return message
+    
+    # 2. Get AI Response
+    chain = get_rag_chain()
+    response = chain.invoke({"input": user_query})
+    answer = response['answer']
+    
+    # 3. Post-check
+    is_safe, message = check_output_safety(answer)
+    if not is_safe:
+        return message
+        
+    return answer
+    
