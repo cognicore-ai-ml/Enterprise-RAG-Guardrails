@@ -40,4 +40,16 @@ if prompt := st.chat_input("Ask a question about your documents..."):
         st.markdown(response)
     
     st.session_state.messages.append({"role": "assistant", "content": response})
+
+
+#
+from src.chain import run_secure_chain
+
+# ... inside your chat input logic ...
+    with st.chat_message("assistant"):
+        # Call the secure chain we just built
+        response = run_secure_chain(prompt) 
+        st.markdown(response)
+
+Where I put this
   
