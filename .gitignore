@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# .gitignore file
+.env
+__pycache__/
+venv/
+
