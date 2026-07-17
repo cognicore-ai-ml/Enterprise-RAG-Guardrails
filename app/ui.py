@@ -1,0 +1,43 @@
+import streamlit as st
+import os
+from dotenv import load_dotenv
+
+# 1. Load Environment Variables
+load_dotenv()
+
+# 2. Page Configuration
+st.set_page_config(page_title="Enterprise RAG Assistant", page_icon="🛡️")
+
+st.title("🛡️ Enterprise RAG Assistant")
+st.markdown("Secure, guarded Q&A for internal documents.")
+
+# 3. Sidebar for Configuration
+with st.sidebar:
+    st.header("Settings")
+    model_choice = st.selectbox("Select LLM", ["GPT-4o", "Llama 3 (Local)"])
+    st.info("Guardrails: Active & Monitoring")
+
+# 4. Initialize Chat History
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+# 5. Display Chat History
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+
+# 6. Chat Input Logic
+if prompt := st.chat_input("Ask a question about your documents..."):
+    # Display user message
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    with st.chat_message("user"):
+        st.markdown(prompt)
+
+    # Display assistant response
+    with st.chat_message("assistant"):
+        # TODO: This is where you will call your RAG chain!
+        response = f"Simulated response to: {prompt} (Connect your src/chain.py here)"
+        st.markdown(response)
+    
+    st.session_state.messages.append({"role": "assistant", "content": response})
+  
