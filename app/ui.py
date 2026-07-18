@@ -45,11 +45,12 @@ if prompt := st.chat_input("Ask a question about your documents..."):
     with st.chat_message("user"):
         st.markdown(prompt)
 
-    # Display assistant response
+        # Display assistant response
     with st.chat_message("assistant"):
-        # TODO: This is where you will call your RAG chain!
-        response = f"Simulated response to: {prompt} (Connect your src/chain.py here)"
+        # This calls your secure chain logic
+        response = run_secure_chain(prompt)
         st.markdown(response)
+        
     
     st.session_state.messages.append({"role": "assistant", "content": response})
 
