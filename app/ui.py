@@ -51,10 +51,9 @@ if prompt := st.chat_input("Ask a question about your documents..."):
         response = run_secure_chain(prompt)
         st.markdown(response)
         
-    
-    st.session_state.messages.append({"role": "assistant", "content": response})
-
-st.session_state.messages.append(...)
+      
+        st.session_state.messages.append({"role": "assistant", "content": response})
+        
 
 
     
