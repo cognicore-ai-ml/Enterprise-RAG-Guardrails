@@ -54,5 +54,7 @@ if prompt := st.chat_input("Ask a question about your documents..."):
     
     st.session_state.messages.append({"role": "assistant", "content": response})
 
+st.session_state.messages.append(...)
+
 
     
