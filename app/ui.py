@@ -51,9 +51,6 @@ if prompt := st.chat_input("Ask a question about your documents..."):
 
 #
 from 
-        response = run_secure_chain(prompt) 
-        st.markdown(response)
-
 # app/ui.py
 
 # ... (setup code) ...
