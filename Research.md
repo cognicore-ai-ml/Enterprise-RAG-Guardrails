@@ -3,12 +3,16 @@
 # Abstract
 
 This project implements a Retrieval-Augmented Generation (RAG) pipeline designed for secure, enterprise-grade information retrieval. The core objective was to construct a robust system that balances effective document retrieval with necessary output guardrails while maintaining stability in a modular Python development environment.
-Technical Stack
+
+# Technical Stack
+
 Language: Python 3.12
 Frameworks: LangChain, Streamlit
 Environment: GitHub Codespaces, Virtual Environment (venv)
 Dependency Management: pip, requirements.txt
-Engineering Challenges & Solutions
+
+
+# Engineering Challenges & Solutions
 
 
 # 1. Dependency Modernization
